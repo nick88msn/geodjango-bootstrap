@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'markers'
 ]
 
@@ -76,7 +77,8 @@ WSGI_APPLICATION = 'map.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -119,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+#GeoDjango Support
+SPATIALITE_LIBRARY_PATH='/opt/homebrew/Cellar/libspatialite/5.0.1/lib/mod_spatialite.dylib'
+GDAL_LIBRARY_PATH='/opt/homebrew/Cellar/gdal/3.2.2_4/lib/libgdal.dylib'
